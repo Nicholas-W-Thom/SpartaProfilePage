@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Profile-Projects</title>
+    <link type='text/css' rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type='text/css' rel='stylesheet' href='styles/default.css'>
+    <link type='text/css' rel='stylesheet' href='styles/profile.css'>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nicholas Daily">
+    <meta name="description" content="This is my sparta global profile">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    
+<body>
+  <header>
+      <div class="fit-max-width">
+          <div id="nav-control">
+              <span class="material-icons" id="open-nav">menu</span>
+              <span class="material-icons hidden" id="close-nav">close</span>
+          </div>
+          <h1>&#128062;Nicholas Daily&#128062;</h1>
+
+          <nav class="clear-fix hidden">
+              <ul>
+                  <li><a href="index.html">Profile</a></li>
+                <li><a href="projects.html" id="current">Projects</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+  <script type="text/javascript">
+      openNav = document.getElementById('open-nav');
+      closeNav = document.getElementById('close-nav');
+      nav = document.querySelector('header nav');
+      openNav.onclick = toggleNav;
+      closeNav.onclick = toggleNav;
+      function toggleNav(){
+          nav.classList.toggle("hidden");
+          openNav.classList.toggle("hidden");
+          closeNav.classList.toggle("hidden");
+
+      }
+  </script>
+  
+  <main class="fit-max-width">
+      <article>
+          <div id="profilePictureContainer">
+              <img id="profilePicture" src="img/default/pfp.jpg" />
+          </div>
+          <h2> About me:</h2>
+          <p id="intro">Hello, my name is Nicholas Daily and I am a software developer. I am most comfortable in a 
+              web development environment. I know how to use HTML, CSS, and Javascript for front-end 
+              development and I can use either PHP or the Spring Framework (Java) on back-end development. 
+              When working with the cloud I typically use Microsoft Azure. I deploy applications in virtual 
+              machines, kubernetes clusters, and as container applications. For version control I use Git and 
+              GitHub. I'm always looking to learn more and I aspire to be in a position where I can help teach 
+              other people what I already know and what I will learn in the future.
+          </p>
+        <div id="socials">
+          <div>
+          <a href="https://www.linkedin.com/in/nicholas-thom-b89116233/" class="fa fa-linkedin" target="_blank"> </a>
+          </div>
+          <div>
+            <a href="https://github.com/NicholasDaily" class="fa fa-github" target="_blank"> </a>
+          </div>
+        </div>
+        <h2>Projects</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th><th>Description</th><th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Profile</td><td>This page is a simple profile application that is mostly static html.
+               It has a dash of CSS and the tiniest touch of JavaScript. There is also a form element 
+              that demonstrates the linkage between the name of an input field, its value, and the data that
+               gets transferred in a request.</td><td>2023</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+  </main>
+  <footer>
+    &copy;Nicholas Daily 2023
+  </footer>
+</body>
+</html>

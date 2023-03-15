@@ -1,0 +1,72 @@
+#profilePicture {
+    width: 200px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+@keyframes rotatingBorder {
+  0% {background: conic-gradient(red, orange, orange, yellow, yellow, green, green, blue, blue, purple, purple, red);}
+  9% {background: conic-gradient(red, red, orange, orange, yellow, yellow, green, green, blue, blue, purple, purple);}
+  18% {background: conic-gradient(purple, red, red, orange, orange, yellow, yellow, green, green, blue, blue, purple);}
+  27% {background: conic-gradient(purple, purple, red, red, orange, orange, yellow, yellow, green, green, blue, blue);}
+  36% {background: conic-gradient(blue, purple, purple, red, red, orange, orange, yellow, yellow, green, green, blue);}
+  45% {background: conic-gradient(blue, blue, purple, purple, red, red, orange, orange, yellow, yellow, green, green);}
+  54% {background: conic-gradient(green, blue, blue, purple, purple, red, red, orange, orange, yellow, yellow, green);}
+  63% {background: conic-gradient(green, green, blue, blue, purple, purple, red, red, orange, orange, yellow, yellow);}
+  72% {background: conic-gradient(yellow, green, green, blue, blue, purple, purple, red, red, orange, orange, yellow);}
+  81% {background: conic-gradient(yellow, yellow, green, green, blue, blue, purple, purple, red, red, orange, orange);}
+  90% {background: conic-gradient(orange, yellow, yellow, green, green, blue, blue, purple, purple, red, red, orange);}
+  100% {background: conic-gradeint(orange, orange, yellow, yellow, green, green, blue, blue, purple, purple, red, red);}
+}
+
+#profilePictureContainer {
+    background: conic-gradient(red,  orange, orange, yellow,  yellow, green, green, blue, blue, purple, purple, red);
+    animation: 2s linear 0s rotatingBorder infinite;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 210px; 
+    height: 210px;
+    padding: 5px; 
+}
+
+
+
+main article{
+    padding: 20px;
+}
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+  }
+
+  table td,
+  table th{
+    padding: 10px;
+  }
+
+table th{
+  text-align: center;
+}
+  
+  main table tr, table td, table th{
+    border: solid 1px #E8E8E8;
+  }
+
+@media (min-width: 600px) {
+    #profilePictureContainer {
+        float: left;
+        margin: 10px;
+    }
+  
+    #intro {
+      margin-bottom: 100px;
+    }
+}

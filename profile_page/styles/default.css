@@ -1,0 +1,337 @@
+/*when writing CSS it can be very useful to make sure you add comments and sort your
+sections in a similar order with every css file, I have found that the order I use 
+tends to be:
+any utility functions first
+then I just follow the flow of my HTML document if possible so:
+header
+nav
+nav ul
+nav li
+nav a
+main
+article
+footer
+
+This just really helps for being able to find style rules in a faster way. Rather than digging 
+through an unordered list of rules*/
+
+/*
+  BE AWARE: there are different factors that will determine how things are styled:
+  -inline css or css that is added directly to an element in an HTML file will take priority
+  -then it comes to embedded css or the css added to the <style> element of a HTML page in the 
+    head element.
+  -then it comes to the order in which you link your CSS files, those files that 
+    are linked later will override rules of the previously linked css files.
+  -then it comes to which rule has the most specific selctor (for example 
+  .hidden{display: none;} will not override div.hidden{display: block})
+  -then it comes down to a media query and say for example the size of a screen
+    we will discuss media queries further down the page.
+  -then it comes down to order on the CSS page, if you set a rule further down for the same
+    selector it will override a previous rule
+  -
+*/
+
+/*UTILITY*/
+/* the astrisk "*" denotes "all" and will apply to all of the elements*/
+* {
+  /*This ensures that the width and height are measured all the way through to includethe border*/
+    box-sizing: border-box; 
+}
+
+/*Class selectors are denoted as starting with a period*/
+.hidden{
+    display: none;
+}
+
+/*centers the content that needs to fit a maximum width specified later*/
+.fit-max-width{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*FONT AWESOME / external links*/
+/*id selectors are denoted as starting with a hash tag/pound sign*/
+#socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#socials a {
+  /*removes the undrline from "a" (anchor) tags, must be specified directly on the element
+  and not its parent elements*/
+  text-decoration: none;
+}
+
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(to bottom right, red, orange, yellow, green, blue, purple);
+  border-radius: 15px;
+  color: black;
+  
+}
+
+/*psudo class selectors can be accessed with a colon*/
+/*hover is a psudo class selector that allows you to style an element specifically when it is being hovered over by a cursor*/
+.fa:hover { 
+  opacity: 0.7;
+}
+
+/*OUTER MOST ELEMENTS*/
+
+/*prevent that annoying issue where 
+your page has empty space around its edges*/
+/*additionally using a comma will make sure the rules 
+within the curly braces get applied to both of the selected 
+elements*/
+html,
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-image: url("../img/default/background.jpg"); 
+    background-size: 350px;
+    background-repeat: both;
+}
+
+
+
+/*ELEMENTS WITHIN BODY*/
+
+/*HEADER AND NAV*/
+header {
+    width: 100%;
+    background: white;
+}
+
+/*sometimes the margin of elements might spill out 
+of their parent containers, so if you have an 
+unexplained separation between 2 elements it can 
+be a good idea to make sure that you remove the margin*/
+header h1 {
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+#nav-control {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-flow: row;
+    width: 100%;
+    position: absolute;
+    right: 5;
+    top: 5;
+}
+
+#open-nav,
+#close-nav{
+    /*user-select:none; makes it so the user cannot select the element 
+      this is nifty particularly when you don't want the user to highlight 
+      an image or elements that provide functionality like buttons made of 
+      text elements or symbols (arrows or menu button)*/
+    user-select: none;
+    font-size: 45px;
+}
+
+#open-nav:hover,
+#close-nav:hover{
+  /*Turns cursor to pointer, nice to have to indicate to the user that they can interact with an element*/
+    cursor: pointer; 
+}
+
+header nav ul {
+    display: flex;
+    flex-flow: column;
+}
+
+header nav a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+
+header nav ul{
+    /*list-style-type: none; removes the bullet points from an unordered list*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+   /*set the background to a gradient colour rather than just one solid colour*/
+   background: linear-gradient(to bottom, red, orange, yellow, green, blue, purple);
+  /*makes the background only appear under text*/
+   -webkit-background-clip: text;
+}
+
+header nav a:hover {
+        cursor: pointer;
+        /*look up at the -webkit-background-clip: text; setting the colour
+          of the text to transparent will now allow us to see the background
+          therefore we will have our text appear with a gradient colour*/
+        color: transparent;
+        font-weight: bold;
+}
+
+header nav li{
+    border-bottom: dotted 2px silver;
+}
+
+/*last-child psudo selector will let us select the last element which can help 
+with removing an extra border when you are using a border to separate items in 
+a list*/
+header nav li:last-child{
+    border: none;
+}
+
+/*ALL OF THE MAIN CONTENT OF OUR PAGE*/
+main {
+  background: rgba(0, 0, 0, .5); /*rgba is nice when you want that alpha layer so you can allow opacity to be adjusted*/
+  padding: 5px 20px; /*padding-top and padding-bottom are 5px, padding-left and padding-right are 20px*/
+  /*calc is a useful function for adjusting things like percentages with other unit types
+  108px is the height of my header + the height of my footer. vh just means view/viewport height in terms of percentage. 
+  I do this to ensure that my footer will be at the bottom even if the main container's content isn't enough to push 
+  it there on it's own.*/
+  min-height: calc(100vh - 108px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+article {
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+article:last-child{
+    margin-bottom: 0;
+}
+
+article h2{
+    text-align: center;
+    color: darkorange;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+}
+/*adding brackets will allow you to select an element based off of the value of its attributes
+for example type of input being text*/
+input[type="text"]{
+  margin: 10px 0;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    background: white;
+}
+
+
+
+
+/*media queries are fun, they allow you to adjust the rendering of your page depending on 
+a number of factors, device width, device type (custom styles for printers perhaps), etc.
+These rules will only apply to situations where the browser is greater than 700px.
+Think of what is between the parentheses as the "acceptance criteria" for these style rules 
+which will override the previous rules in this document if there are conflicts.*/
+
+/*Another thing to note is for me it is typically easier to decide in responsive web design 
+how to adjust as the screen gets bigger. I take a mobile first approach meaning that the base 
+style for my pages are built with the mobile environment in mind, but I then create an extra 
+set of rules for when the browser width gets larger*/
+
+/*I would highly encourage creating a view for mobile, tablet-sized devices, and 
+for monitors that way we can be sure that our pages are nice for all of our visitors.*/
+@media (min-width: 700px){
+  #socials {
+    flex-direction: column;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+  }
+  
+  .fa {
+    opacity: 0.7;
+  }
+  
+  .fa:hover {
+    opacity: 1;
+  }
+    
+
+  .fit-max-width {
+    /*our width by default here is 80% of the device width on browsers wider than 700px, 
+    but the maximum width is capped so our content areas can stay displaying nicely 
+    as users expand to infinity*/
+    max-width: 1000px;
+    width: 80vw;
+  }
+
+  header h1{
+    padding-left: 10px;
+    text-align: left;
+    padding-bottom: 0;
+  }
+
+  #nav-control {
+    display: none;
+  }
+
+  nav{
+    width: 100%;
+    display: flex;
+  }
+
+  nav.hidden{
+    display: flex;
+  }
+
+  header nav ul{
+    flex-flow: row;
+    flex-basis: auto;
+    justify-content: flex-start;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+    -webkit-background-clip: text;
+  }
+
+  header nav li{
+    border-bottom: solid 5px transparent;
+    width: 75px;
+  }
+
+  header nav li:last-child{
+    border-bottom: solid 5px transparent;
+  }
+
+  #current{
+    /*adds that nice underline to the nav link for the current page to indicate 
+    clearly that the user is on that page*/
+    border-bottom: solid 5px orange;
+  }
+  
+  main {
+    padding: 0 50px;
+  }
+  
+  main article {
+    border-radius: 0;
+  }
+
+}

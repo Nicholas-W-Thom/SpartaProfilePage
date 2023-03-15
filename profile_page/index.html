@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Set the title that appears in the tab section of the browser-->
+    <title>Profile-home</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nicholas Daily">
+    <meta name="description" content="This is my sparta global profile">
+    <!--never forget to set this meta tag, it really helps with the proper scale 
+        when rendering the page to different devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!--Import google material icons for mobile nav buttons-->
+    <link type='text/css' rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <!--Import google font-awesome for social icons like github and linkedin logos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Default stylesheet to be applied to all pages-->
+    <link type='text/css' rel='stylesheet' href='styles/default.css'>
+    <!--Special stylesheet for just this page (the profile page-->
+    <link type='text/css' rel='stylesheet' href='styles/profile.css'>
+</head> 
+    
+<body>
+  <header>
+      <div class="fit-max-width">
+          <div id="nav-control">
+              <span class="material-icons" id="open-nav">menu</span>
+              <span class="material-icons hidden" id="close-nav">close</span>
+          </div>
+          <h1>&#128062;Nicholas Daily&#128062;</h1>
+
+          <nav class="clear-fix hidden">
+              <ul>
+                  <li><a href="index.html" id="current">Profile</a></li>
+                <li><a href="projects.html">Projects</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+<!--This is just the script that controls functionality for my navigation 
+for the mobile view of the page, note that this is probably inappropriately placed
+and should probably actually really be just before the closing body tag. 
+Most importantly it needs to be in place after the content has loaded so that 
+when I use getElementByID() the elements can actually be selected and not just 
+be null.-->
+  <script type="text/javascript">
+      openNav = document.getElementById('open-nav');
+      closeNav = document.getElementById('close-nav');
+      nav = document.querySelector('header nav');
+      openNav.onclick = toggleNav;
+      closeNav.onclick = toggleNav;
+      function toggleNav(){
+          nav.classList.toggle("hidden");
+          openNav.classList.toggle("hidden");
+          closeNav.classList.toggle("hidden");
+
+      }
+  </script>
+  <!--main is another one of those semantic markup tags we were talking about
+      main is a good place to put the "main" content of your page-->
+  <main class="fit-max-width">
+      <!--article is a good one to group a section that represents one idea
+          I don't exactly provide the best representations for semantic markup, 
+          so please when possible do better than me xD -->
+      <article>
+          <!--the id attribute is good when you need to be able to select one specific item,
+              the id value (the part in quotes) should be unique for any given document-->
+          <div id="profilePictureContainer">
+              <img id="profilePicture" src="img/default/pfp.jpg" />
+          </div>
+          <h2> About me:</h2>
+          <p id="intro">Hello, my name is Nicholas Daily and I am a software developer. I am most comfortable in a 
+              web development environment. I know how to use HTML, CSS, and Javascript for front-end 
+              development and I can use either PHP or the Spring Framework (Java) on back-end development. 
+              When working with the cloud I typically use Microsoft Azure. I deploy applications in virtual 
+              machines, kubernetes clusters, and as container applications. For version control I use Git and 
+              GitHub. I'm always looking to learn more and I aspire to be in a position where I can help teach 
+              other people what I already know and what I will learn in the future.
+          </p>
+        <!--Within this div I took advantage of font awesome icons for social media pages-->
+        <div id="socials">
+          <div>
+            <a href="https://www.linkedin.com/in/nicholas-thom-b89116233/" class="fa fa-linkedin" target="_blank"> </a>
+          </div>
+          <div>
+            <a href="https://github.com/NicholasDaily" class="fa fa-github" target="_blank"> </a>
+          </div>
+        </div>
+        <h2>Skills</h2>
+        <table>
+          <tbody>
+            <tr>
+              <!-- &amp; just displays "&" properly in the browser as an HTML entity,
+                   HTML entities become important because they will not be misenturprated 
+                   as part of your HTML syntax ex lt and gt brackets that are a part of the 
+                   tags in HTML-->
+              <th>Languages:</td><td>HTML &amp; CSS, JavaScript, PHP, SQL, Java</td>
+            </tr>
+            <tr>
+              <th>Frameworks:</td>
+              <td>Spring/Spring Boot</td>
+            </tr>
+            <tr>
+              <th>Libraries and APIs:</td>
+              <td>JDBC, JQuery</td>
+            </tr>
+            <tr>
+              <th>Cloud:</td>
+              <td>Azure</td>
+            </tr>
+            <tr>
+              <th>Other:</td>
+              <td>Git, Kubernetes, CLI, Containers</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article>
+        <!--GET is an http request method that takes advantage of the URL to pass 
+            information in the browser, the variables are what gets listed after the
+            question mark in a url. The "action" attribute is used to specify who is
+            responsible for handling the form data that you are submitting in the form.-->
+        <form method="GET" action="https://google.com/search"> 
+          <!--The for attribute points the label towards the id attribute
+              of an input element-->
+          <label for="query">
+            Google Search:
+          </label>
+          <!--the type attribute allows you to specify how the input element is rendered
+              in the browser, it can provide additional functionality and make it easier 
+              for the end user to submit the value in the expected format. the value attribute 
+              for an input element will allow you to set a default value for a given input. The name 
+              attribute is very important as that is the label or key for the value once the form has been 
+              submitted, it is how the script or page will be able to access the information sent in the request-->
+          <input type="text" id="query" value="ISTQB" name="q">
+          <input type="submit">
+        </form>
+      </article>
+  </main>
+  <footer>
+    &copy;Nicholas Daily 2023
+  </footer>
+</body>
+</html>
