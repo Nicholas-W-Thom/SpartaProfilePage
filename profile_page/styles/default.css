@@ -110,6 +110,7 @@ body{
 header {
     width: 100%;
     background: white;
+    min-height: 90px;
 }
 
 /*sometimes the margin of elements might spill out 
