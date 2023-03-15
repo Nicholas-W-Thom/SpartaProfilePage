@@ -1,7 +1,8 @@
 ## Sparta Global Profile Page
 Welcome and thank you for taking the time to look at my repository. **This is purely for educational purposes and should not be used in production.** In this repo there are 2 files worth taking a glance at because they have been commented with some useful information in regards to CSS and HTML in general.
 1. [profile_page/index.html](https://github.com/Nicholas-W-Thom/SpartaProfilePage/blob/main/profile_page/index.html)
-2. [profile_page/styles/default.css](https://github.com/Nicholas-W-Thom/SpartaProfilePage/blob/main/profile_page/styles/default.css)
+2. [profile_page/styles/default.css](https://github.com/Nicholas-W-Thom/SpartaProfilePage/blob/main/profile_page/styles/default.css)<br /><br />
+[link to live version of page](https://nicholas-w-thom.github.io/SpartaProfilePage/profile_page/index.html)
 ### Do:
 - Read the comments in the files specified above
 - Your own research
